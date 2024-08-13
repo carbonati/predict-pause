@@ -1,0 +1,23 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  sha: v0.8.0
+  hooks:
+  - id: trailing-whitespace
+  - id: check-yaml
+  - id: end-of-file-fixer
+  - id: check-added-large-files
+- repo: https://github.com/pre-commit/mirrors-autopep8
+  rev: v1.5.3
+  hooks:
+  - id: autopep8
+    args:
+    - -i
+    - --max-line-length=140
+- repo: https://github.com/pre-commit/mirrors-pylint
+  rev: v2.5.3
+  hooks:
+  - id: pylint
+    language_version: python3.8
+    args:
+    - --rcfile=.pylintrc
+    - -rn
