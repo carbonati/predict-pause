@@ -1,7 +1,7 @@
 
 This repository includes the source code for the paper "Deep learning can unmask conduction tissue disease from an ambulatory ECG"" by Fiorina et al. (2023)
 
-![model_diagram](assets/model_diagram.jpg)
+![model_diagram](assets/model_diagram.png)
 
 ## Environment setup
 
