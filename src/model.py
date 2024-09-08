@@ -2,7 +2,7 @@ from typing import Tuple
 import torch
 import torch.nn as nn
 from einops import rearrange
-from cardioflow.models.torch.layers.norm import Attention, LayerNorm
+from src.layers import Attention, AttentionConfig, LayerNorm
 
 
 class TemporalFusionModel(nn.Module):
@@ -31,8 +31,8 @@ class TemporalFusionModel(nn.Module):
         self.signal_encoder = signal_model.encoder
         self.signal_beat_pool = signal_model.beat_pool
         self.signal_norm = LayerNorm(signal_model._num_encoder_features, eps=1e-6)
-        self.signal_attention = attention.Attention(
-            attention.AttentionConfig(
+        self.signal_attention = Attention(
+            AttentionConfig(
                 signal_model._num_encoder_features,
                 attention_drop_rate=0.3,
                 is_causal=is_causal,

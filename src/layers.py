@@ -1,6 +1,6 @@
 import math
 from dataclasses import dataclass
-from typing import Tuple, Union
+from typing import Literal, Tuple, Union
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -164,7 +164,6 @@ def drop_path(
     return x * random_tensor
 
 
-@registry.register_layer("drop_path", "torch")
 class DropPath(nn.Module):
     """Drop path (Stochastic Depth)
     https://github.com/rwightman/pytorch-image-models/blob/main/timm/layers/drop.py
